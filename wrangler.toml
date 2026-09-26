@@ -1,4 +1,8 @@
-# Cloudflare Pages configuration (used by Git integration and `wrangler pages deploy`)
+# Cloudflare Workers — static assets deployment (deploy command: `npx wrangler deploy`)
+# `name` must match the Worker name shown in the Cloudflare dashboard.
 name = "solutions-blueprint"
-pages_build_output_dir = "./dist"
 compatibility_date = "2026-09-01"
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"

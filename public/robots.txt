@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://solutions-blueprint.pages.dev/sitemap.xml
+Sitemap: https://solutions-blueprint.abdulrahim-uj.workers.dev/sitemap.xml

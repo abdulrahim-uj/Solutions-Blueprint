@@ -2,7 +2,7 @@
 
 Personal portfolio of **Abdul Rahim Kattirithodi**, Solution Expert and Senior Python / Django Full Stack Engineer.
 
-Built with **React 19 + Vite 8**, deployed on **Cloudflare Pages**.
+Built with **React 19 + Vite 8**, deployed on **Cloudflare Workers** (static assets).
 
 ## Tech
 
@@ -11,14 +11,14 @@ Built with **React 19 + Vite 8**, deployed on **Cloudflare Pages**.
 - Plain CSS with design tokens (`src/styles/global.css`)
 - Scroll-reveal via `IntersectionObserver`, scroll-spy navigation, accessible mobile menu, project filtering
 - SEO: meta and Open Graph tags, JSON-LD `Person` schema, `robots.txt`, `sitemap.xml`
-- Security and caching headers for Cloudflare Pages (`public/_headers`)
+- Security and caching headers for Cloudflare (`public/_headers`)
 - Honors `prefers-reduced-motion`; includes a skip link, focus-visible styles and semantic landmarks
 
 ## Project structure
 
 ```
 ├── public/
-│   ├── _headers          # Cloudflare Pages security + cache headers
+│   ├── _headers          # Cloudflare security + cache headers
 │   ├── favicon.svg
 │   ├── og-image.png      # 1200×630 social share card
 │   ├── profile.webp
@@ -32,7 +32,7 @@ Built with **React 19 + Vite 8**, deployed on **Cloudflare Pages**.
 │   ├── App.jsx
 │   └── main.jsx
 ├── .github/workflows/ci.yml   # lint + build on every push / PR
-├── wrangler.toml              # Cloudflare Pages config
+├── wrangler.toml              # Cloudflare Workers config
 └── index.html
 ```
 
@@ -65,35 +65,34 @@ npm run build      # outputs to dist/
 npm run preview    # serve the production build locally
 ```
 
-## Deploy to Cloudflare Pages
+## Deploy to Cloudflare (Workers static assets)
 
-### Option A: Git integration (recommended; auto-deploys on every push)
+`wrangler.toml` deploys `./dist` as a static-assets Worker. `public/_headers` is applied automatically.
 
-1. Push this repo to GitHub (`main` branch).
-2. Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** tab → **Connect to Git**.
-3. Authorise GitHub and select **abdulrahim-uj/Solutions-Blueprint**.
-4. Build settings:
+### Option A: Git integration (auto-deploys on every push)
+
+1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Import a repository** → select **abdulrahim-uj/Solutions-Blueprint**.
+2. Build settings:
    | Setting | Value |
    |---|---|
-   | Framework preset | `React (Vite)` |
    | Build command | `npm run build` |
-   | Build output directory | `dist` |
+   | Deploy command | `npx wrangler deploy` |
    | Production branch | `main` |
-5. **Save and Deploy**. The site goes live at `https://solutions-blueprint.pages.dev`.
+3. The Worker name must match `name` in `wrangler.toml` (`solutions-blueprint`).
 
-Every push to `main` then deploys to production, and every other branch or PR gets a preview URL.
+The site goes live at https://solutions-blueprint.abdulrahim-uj.workers.dev.
 
-### Option B: Direct upload from your machine
+### Option B: Deploy from your machine
 
 ```bash
 npm run build
 npx wrangler login
-npx wrangler pages deploy        # reads wrangler.toml → uploads ./dist
+npx wrangler deploy
 ```
 
 ### Custom domain (optional)
 
-Pages project → **Custom domains** → **Set up a custom domain**. If you use one, replace `https://solutions-blueprint.pages.dev` in `index.html`, `public/robots.txt` and `public/sitemap.xml`.
+Worker → **Settings** → **Domains & Routes** → **Add** → Custom domain. If you add one, replace `https://solutions-blueprint.abdulrahim-uj.workers.dev` in `index.html`, `public/robots.txt` and `public/sitemap.xml` with your live URL.
 
 ## Contact
 
