@@ -49,8 +49,8 @@ export default function Contact() {
           </div>
 
           <ul className="channels">
-            {channels.map(({ label, value, href, Icon, external }) => (
-              <li key={label}>
+            {channels.map(({ label, value, href, Icon, external }, i) => (
+              <li key={label} className="reveal" style={{ '--d': i + 1 }}>
                 <a
                   href={href}
                   {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}

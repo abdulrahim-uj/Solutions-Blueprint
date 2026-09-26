@@ -1,4 +1,5 @@
 import { about, skillGroups, stats } from '../data/profile.js'
+import CountUp from './CountUp.jsx'
 import SectionHead from './SectionHead.jsx'
 
 export default function About() {
@@ -15,20 +16,20 @@ export default function About() {
           <div className="glass about-card reveal">
             {about.paragraphs.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}
             <div className="numbers">
-              {stats.map((s) => (
-                <div className="number" key={s.label}>
-                  <b>{s.value}</b>
+              {stats.map((s, i) => (
+                <div className="number reveal" key={s.label} style={{ '--d': i + 1 }}>
+                  <b><CountUp value={s.value} /></b>
                   <small>{s.label}</small>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="glass about-card reveal" id="skills">
+          <div className="glass about-card reveal" id="skills" style={{ '--d': 1 }}>
             <p className="eyebrow">The stack</p>
             <div className="skill-groups">
-              {skillGroups.map((g) => (
-                <div className="skill-group" key={g.title}>
+              {skillGroups.map((g, gi) => (
+                <div className="skill-group reveal" key={g.title} style={{ '--d': Math.min(gi, 5) }}>
                   <h3>{g.title}</h3>
                   <ul className="stack">
                     {g.items.map((s) => <li className="chip" key={s}>{s}</li>)}

@@ -7,27 +7,28 @@ const ids = navLinks.map((l) => l.id)
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const active = useScrollSpy(ids)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
+    const root = document.documentElement
+    root.toggleAttribute('data-menu-open', open)
+    if (open) root.removeAttribute('data-nav-hidden')
     document.body.style.overflow = open ? 'hidden' : ''
     const onKey = (e) => e.key === 'Escape' && setOpen(false)
+    const onResize = () => window.innerWidth > 900 && setOpen(false)
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
+    window.addEventListener('resize', onResize)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('resize', onResize)
+    }
   }, [open])
 
   const close = () => setOpen(false)
 
   return (
-    <nav className={`nav ${scrolled ? 'is-scrolled' : ''}`} aria-label="Primary">
+    <>
+    <nav className="nav" aria-label="Primary">
       <div className="wrap nav-inner">
         <a className="brand" href="#top" onClick={close} aria-label={`${profile.name} — home`}>
           {profile.initials}<span>.</span>
@@ -35,17 +36,17 @@ export default function Nav() {
 
         <div className="nav-links">
           {navLinks.map((l) => (
-            <a key={l.id} href={`#${l.id}`} className={active === l.id ? 'is-active' : ''}>
+            <a key={l.id} href={`#${l.id}`} className={active === l.id ? 'is-active' : ''} aria-current={active === l.id ? 'true' : undefined}>
               {l.label}
             </a>
           ))}
         </div>
 
-        <a className="nav-cta" href="#contact">Start a conversation ↗</a>
+        <a className="nav-cta" href="#contact">Start a conversation <span aria-hidden="true">↗</span></a>
 
         <button
           type="button"
-          className="nav-toggle"
+          className={`nav-toggle ${open ? 'is-open' : ''}`}
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -54,14 +55,21 @@ export default function Nav() {
           {open ? <Close /> : <Menu />}
         </button>
       </div>
-
-      <div id="mobile-menu" className={`mobile-menu ${open ? 'is-open' : ''}`} hidden={!open}>
-        {navLinks.map((l, i) => (
-          <a key={l.id} href={`#${l.id}`} onClick={close} style={{ '--i': i }}>
-            <span>0{i + 1}</span>{l.label}
-          </a>
-        ))}
-      </div>
+      <div className="nav-progress" aria-hidden="true" />
     </nav>
+
+      <div id="mobile-menu" className={`mobile-menu ${open ? 'is-open' : ''}`} inert={!open} aria-hidden={!open}>
+        <div className="mobile-menu-links">
+          {navLinks.map((l, i) => (
+            <a key={l.id} href={`#${l.id}`} onClick={close} style={{ '--i': i }} className={active === l.id ? 'is-active' : ''}>
+              <span>0{i + 1}</span>{l.label}
+            </a>
+          ))}
+        </div>
+        <a className="btn primary mobile-menu-cta" href="#contact" onClick={close} style={{ '--i': navLinks.length }}>
+          Start a conversation ↗
+        </a>
+      </div>
+    </>
   )
 }

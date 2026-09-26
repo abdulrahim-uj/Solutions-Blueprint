@@ -1,7 +1,9 @@
 import { certifications, education, experience, languages, training, workAuthorisation } from '../data/profile.js'
+import { useTimelineProgress } from '../hooks/useTimelineProgress.js'
 import SectionHead from './SectionHead.jsx'
 
 export default function Experience() {
+  const lineRef = useTimelineProgress()
   return (
     <section id="experience">
       <div className="wrap">
@@ -12,7 +14,7 @@ export default function Experience() {
           lead="From PowerBuilder and SQL Server in Kochi and Dubai to leading Python / Django teams — promoted twice within 24 months at Febno."
         />
         <div className="exp-layout">
-          <ol className="timeline">
+          <ol className="timeline" ref={lineRef}>
             {experience.map((job) => (
               <li className={`item reveal ${job.muted ? 'is-muted' : ''}`} key={`${job.company}-${job.period}`}>
                 <p className="date">{job.period}</p>
@@ -27,7 +29,7 @@ export default function Experience() {
           </ol>
 
           <aside className="exp-side">
-            <div className="glass side-card reveal">
+            <div className="glass side-card reveal" style={{ '--d': 1 }}>
               <p className="eyebrow">Alongside</p>
               <h3>{training.title}</h3>
               <p className="co">{training.company}</p>

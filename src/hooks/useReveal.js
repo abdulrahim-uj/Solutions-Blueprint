@@ -15,7 +15,8 @@ export function useReveal() {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          // Reveal on entry, or if it was jumped past (anchor link / reload mid-page)
+          if (entry.isIntersecting || entry.boundingClientRect.bottom < 0) {
             entry.target.classList.add('is-visible')
             io.unobserve(entry.target)
           }
@@ -31,9 +32,26 @@ export function useReveal() {
     const mo = new MutationObserver(observeAll)
     mo.observe(document.body, { childList: true, subtree: true })
 
+    // Safety net for fast flings / slow devices: once scrolling settles, reveal anything
+    // already on screen or scrolled past that the observer missed between frames.
+    let timer = 0
+    const sweep = () => {
+      const limit = window.innerHeight
+      document.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => {
+        if (el.getBoundingClientRect().top < limit) {
+          el.classList.add('is-visible')
+          io.unobserve(el)
+        }
+      })
+    }
+    const onScroll = () => { clearTimeout(timer); timer = setTimeout(sweep, 140) }
+    window.addEventListener('scroll', onScroll, { passive: true })
+
     return () => {
       io.disconnect()
       mo.disconnect()
+      clearTimeout(timer)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [])
 }

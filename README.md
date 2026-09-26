@@ -9,7 +9,18 @@ Built with **React 19 + Vite 8**, deployed on **Cloudflare Workers** (static ass
 - React 19 function components and hooks, with no UI framework and only two runtime dependencies (`react`, `react-dom`)
 - Vite 8 build, ESLint 10 (flat config)
 - Plain CSS with design tokens (`src/styles/global.css`)
-- Scroll-reveal via `IntersectionObserver`, scroll-spy navigation, accessible mobile menu, project filtering
+- Fully responsive, from 360px phones to tablets (portrait and landscape), short laptop screens (1366×768) and 1920px+ desktops, using fluid `clamp()` type and spacing and grids that adapt to the screen
+- Motion without a library:
+  - staggered page-load and scroll reveals
+  - a timeline line that draws itself as you scroll
+  - count-up stats and a rotating role title
+  - 3D tilt and parallax on the hero card
+  - a cursor spotlight on cards
+  - a scrolling tech strip
+  - project filtering animated with the View Transitions API
+  - a scroll progress bar, and a navbar that hides as you scroll down
+  - a back-to-top button with a progress ring
+- Touch-first UX: hover effects only on devices with a mouse, 44px+ tap targets, a swipeable filter bar, safe-area (notch) insets, and lighter blur effects on phones
 - SEO: meta and Open Graph tags, JSON-LD `Person` schema, `robots.txt`, `sitemap.xml`
 - Security and caching headers for Cloudflare (`public/_headers`)
 - Honors `prefers-reduced-motion`; includes a skip link, focus-visible styles and semantic landmarks
@@ -26,8 +37,8 @@ Built with **React 19 + Vite 8**, deployed on **Cloudflare Workers** (static ass
 │   └── sitemap.xml
 ├── src/
 │   ├── data/profile.js   # ← ALL content lives here (edit this to update the site)
-│   ├── components/       # Nav, Hero, About, Experience, Projects, Capabilities, Contact, Footer
-│   ├── hooks/            # useReveal, useScrollSpy
+│   ├── components/       # Nav, Hero, Marquee, About, Experience, Projects, Capabilities, Contact, Footer, BackToTop, CountUp, RotatingWord
+│   ├── hooks/            # useReveal, useScrollSpy, useScrollFx, useSpotlight, useTilt, useInView, useTimelineProgress
 │   ├── styles/global.css
 │   ├── App.jsx
 │   └── main.jsx

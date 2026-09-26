@@ -34,6 +34,15 @@ export const stats = [
   { value: '11', label: 'Developers led' },
 ]
 
+/** Rotating role words in the hero headline pill. */
+export const heroRoles = ['Python / Django', 'Technical Lead', 'Solution Architect', 'Backend Engineer']
+
+/** Technologies scrolled in the marquee strip under the hero. */
+export const marqueeStack = [
+  'Python', 'Django', 'Django REST Framework', 'FastAPI', 'PostgreSQL', 'Redis', 'Celery', 'Docker',
+  'Nginx', 'PgBouncer', 'React.js', 'Next.js', 'Angular', 'Flutter', 'Odoo ERP', 'Zoho', 'GitLab CI/CD', 'Linux',
+]
+
 export const heroHighlights = [
   { title: 'Backend', text: 'Python · Django · DRF · FastAPI' },
   { title: 'Architecture', text: 'Multi-tenant · Modular · Secure' },
@@ -72,8 +81,8 @@ export const experience = [
     company: 'Febno Technologies Pvt Ltd',
     location: 'Calicut, India',
     summary:
-      'Led backend and Angular frontend delivery for TechnoStore360 (multi-tenant B2C) and SaaSOrder (B2B). Grew the team from 7 to 11 engineers and introduced Dockerized environments to cut onboarding and deployment time.',
-    tags: ['Django', 'Angular', 'Docker', 'Hiring'],
+      'Led a backend team delivering multi-tenant SaaS, eCommerce and HR products, owning sprint scope, code review and release quality. I designed the tenant isolation model and modular monolith for TechnoStore360, built the PartnerPro commission engine on Odoo ERP, delivered Waslasoft People biometric attendance sync and HDFC payments for Bairooha, and tuned PostgreSQL queries and indexing across production workloads. Grew the team from 7 to 11 engineers.',
+    tags: ['Tenant isolation', 'Odoo ERP', 'PostgreSQL tuning', 'Hiring'],
   },
   {
     period: 'Jun 2023 — Sep 2023',
@@ -81,8 +90,8 @@ export const experience = [
     company: 'Febno Technologies Pvt Ltd',
     location: 'Calicut, India',
     summary:
-      'Built REST APIs, Odoo ERP integrations and Python middleware for biometric attendance, retail and POS data sync.',
-    tags: ['DRF', 'PostgreSQL', 'Odoo'],
+      'Built backend services and REST API endpoints with Django REST Framework and PostgreSQL, delivered the catalogue and order modules for TechnoStore360, and implemented asynchronous processing with Celery and Celery Beat for scheduled jobs and notifications.',
+    tags: ['DRF', 'PostgreSQL', 'Celery & Celery Beat'],
   },
   {
     period: 'Oct 2022 — Jun 2023',
@@ -108,7 +117,7 @@ export const experience = [
     company: 'Self-employed',
     location: 'Kerala, India',
     summary:
-      'Returned from the UAE during a period disrupted by COVID-19. Ran a leased rubber plantation and latex processing business while retraining from enterprise database and reporting work into Python and Django.',
+      'Returned from Dubai in late 2019, just before COVID-19 disrupted hiring, and used the time deliberately. Mornings went to a natural latex processing and supply business on two leased rubber plantation plots; afternoons went to retraining from MS SQL Server, PowerBuilder and Crystal Reports into Python. That shift became my current Python, Django and backend specialisation.',
     tags: ['Retraining', 'Python', 'Business operations'],
     muted: true,
   },
@@ -129,6 +138,15 @@ export const experience = [
     summary:
       'Built a warehouse management application on PowerBuilder with MS SQL Server 2012 and Oracle 11g back ends, covering automated stock allocation and order fulfilment, and tuned data retrieval with stored procedures, triggers and indexing.',
     tags: ['PowerBuilder', 'SQL Server', 'Oracle 11g'],
+  },
+  {
+    period: 'Jan 2015 — Apr 2015',
+    title: 'Web Developer (Freelance)',
+    company: 'Hamash Ventures',
+    location: 'Palakkad, India',
+    summary:
+      'Designed, developed and maintained the company website for Hamash Ventures, a diversified business group.',
+    tags: ['Web design', 'Freelance'],
   },
 ]
 
@@ -162,6 +180,7 @@ export const workAuthorisation = [
   'Eligible for the EU Blue Card (IT specialist provision, §18g German Residence Act)',
   'Eligible for the Ireland Critical Skills Employment Permit',
   'Prior overseas work experience in the UAE · open to relocation',
+  'Open to hybrid, remote and on-site roles',
 ]
 
 export const projectCategories = ['All', 'SaaS & Commerce', 'HR & Workforce', 'Integrations', 'Web Platforms']
@@ -255,8 +274,8 @@ export const projects = [
     kind: 'Febno · Waslasoft · Techno Dot Academy',
     category: 'Web Platforms',
     description:
-      'Rebuilt from WordPress into React front ends backed by Strapi CMS, with full localisation support, faster pages and easier content editing.',
-    stack: ['React', 'Strapi CMS', 'i18n'],
+      'Complete restructures and rebuilds backed by Strapi CMS with full localisation support: Febno and Techno Dot Academy in React.js, Waslasoft in Next.js. The result is faster pages and easier content editing.',
+    stack: ['React.js', 'Next.js', 'Strapi CMS', 'i18n'],
     url: 'https://www.febno.com/',
     extraLinks: [
       { label: 'waslasoft.com', href: 'https://www.waslasoft.com/' },

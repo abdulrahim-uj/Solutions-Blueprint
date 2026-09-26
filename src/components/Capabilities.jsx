@@ -12,7 +12,7 @@ export default function Capabilities() {
         />
         <div className="services">
           {capabilities.map((c, i) => (
-            <div className="glass service reveal" key={c.title}>
+            <div className="glass service reveal" key={c.title} style={{ '--d': i % 3 }}>
               <p className="num">{String(i + 1).padStart(2, '0')}</p>
               <h3>{c.title}</h3>
               <p>{c.text}</p>
