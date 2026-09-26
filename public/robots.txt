@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://solutions-blueprint.pages.dev/sitemap.xml
