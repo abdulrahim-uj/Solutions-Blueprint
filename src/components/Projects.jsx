@@ -50,18 +50,13 @@ export default function Projects() {
                 <ul className="tags">
                   {p.stack.map((t) => <li className="tag" key={t}>{t}</li>)}
                 </ul>
-                {(p.url || p.secondaryUrl) && (
+                {p.url && (
                   <div className="project-links">
-                    {p.url && (
-                      <a href={p.url} target="_blank" rel="noopener noreferrer">
-                        {host(p.url)} <ArrowUpRight width="14" height="14" />
+                    {[{ label: host(p.url), href: p.url }, ...(p.extraLinks ?? [])].map((l) => (
+                      <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
+                        {l.label} <ArrowUpRight width="14" height="14" />
                       </a>
-                    )}
-                    {p.secondaryUrl && (
-                      <a href={p.secondaryUrl.href} target="_blank" rel="noopener noreferrer">
-                        {p.secondaryUrl.label} <ArrowUpRight width="14" height="14" />
-                      </a>
-                    )}
+                    ))}
                   </div>
                 )}
                 {!p.url && <p className="private-note">Client system · private deployment</p>}

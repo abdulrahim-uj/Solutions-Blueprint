@@ -1,4 +1,4 @@
-import { experience, training } from '../data/profile.js'
+import { certifications, education, experience, languages, training, workAuthorisation } from '../data/profile.js'
 import SectionHead from './SectionHead.jsx'
 
 export default function Experience() {
@@ -9,12 +9,12 @@ export default function Experience() {
           index="02"
           eyebrow="Journey"
           title={<>Code → ownership<br />→ direction.</>}
-          lead="From PowerBuilder and SQL Server in Kochi and Dubai to leading Python / Django teams — each step added a layer of responsibility."
+          lead="From PowerBuilder and SQL Server in Kochi and Dubai to leading Python / Django teams — promoted twice within 24 months at Febno."
         />
         <div className="exp-layout">
           <ol className="timeline">
             {experience.map((job) => (
-              <li className="item reveal" key={`${job.company}-${job.period}`}>
+              <li className={`item reveal ${job.muted ? 'is-muted' : ''}`} key={`${job.company}-${job.period}`}>
                 <p className="date">{job.period}</p>
                 <h3>{job.title}</h3>
                 <p className="co">{job.company} · {job.location}</p>
@@ -33,14 +33,34 @@ export default function Experience() {
               <p className="co">{training.company}</p>
               <p>{training.summary}</p>
             </div>
+
             <div className="glass side-card reveal">
               <p className="eyebrow">Education</p>
-              <h3>Bachelor of Computer Applications</h3>
-              <p className="co">Bharathiar University · 2011</p>
+              {education.map((e) => (
+                <div className="edu" key={e.title}>
+                  <h3>{e.title}</h3>
+                  <p className="co">{e.meta}</p>
+                </div>
+              ))}
               <p className="eyebrow cert-head">Certifications</p>
               <ul className="cert-list">
-                <li>Certified Penetration Tester — Redteam Hacker Academy (2022)</li>
-                <li>Python Master Course — Inmakes Infotech (2022)</li>
+                {certifications.map((c) => <li key={c}>{c}</li>)}
+              </ul>
+            </div>
+
+            <div className="glass side-card reveal">
+              <p className="eyebrow">Languages</p>
+              <ul className="lang-list">
+                {languages.map((l) => (
+                  <li key={l.name}><span>{l.name}</span><small>{l.level}</small></li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="glass side-card reveal">
+              <p className="eyebrow">Work authorisation</p>
+              <ul className="cert-list">
+                {workAuthorisation.map((w) => <li key={w}>{w}</li>)}
               </ul>
             </div>
           </aside>

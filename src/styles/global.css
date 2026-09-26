@@ -401,3 +401,14 @@ section { padding: 115px 0; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ---- Experience extras (education, languages, career break) ---- */
+.item.is-muted::before { background: transparent; border: 1px solid var(--dim); box-shadow: none; }
+.item.is-muted .date { color: var(--dim); }
+.item.is-muted h3 { color: #c8d1df; }
+.edu + .edu { margin-top: 10px; }
+.edu h3 { font-size: 16px; margin-bottom: 2px; }
+.lang-list { display: grid; gap: 8px; margin-top: 12px; }
+.lang-list li { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+.lang-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+.lang-list small { color: var(--cyan); font-size: 11.5px; }
