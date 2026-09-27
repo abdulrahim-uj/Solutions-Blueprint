@@ -19,6 +19,8 @@ export function useScrollFx() {
       root.style.setProperty('--scroll', max > 0 ? (y / max).toFixed(4) : '0')
       root.toggleAttribute('data-scrolled', y > 8)
       root.toggleAttribute('data-show-top', y > window.innerHeight * 0.9)
+      const c = document.getElementById('contact')
+      root.toggleAttribute('data-at-contact', !!c && c.getBoundingClientRect().top < window.innerHeight * 0.85)
 
       const delta = y - lastY
       if (Math.abs(delta) > 6) {

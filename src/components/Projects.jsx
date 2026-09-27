@@ -10,7 +10,6 @@ const countFor = (c) => (c === 'All' ? projects.length : projects.filter((p) => 
 
 export default function Projects() {
   const [filter, setFilter] = useState('All')
-  const [touched, setTouched] = useState(false)
 
   const visible = useMemo(
     () => (filter === 'All' ? projects : projects.filter((p) => p.category === filter)),
@@ -19,7 +18,7 @@ export default function Projects() {
 
   const choose = (c) => {
     if (c === filter) return
-    const apply = () => { setTouched(true); setFilter(c) }
+    const apply = () => setFilter(c)
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     // Smoothly morph the grid where the View Transitions API exists; plain update elsewhere.
     if (document.startViewTransition && !reduce) {
@@ -33,7 +32,7 @@ export default function Projects() {
     <section id="work">
       <div className="wrap">
         <SectionHead
-          index="03"
+          index="04"
           eyebrow="Selected work"
           title={<>Ideas turned<br />into systems.</>}
           lead="Production systems I have architected, led or built — from multi-tenant commerce and HR platforms to the middleware that keeps ERPs, CRMs and devices in sync."
@@ -64,7 +63,7 @@ export default function Projects() {
           {visible.map((p, i) => (
             <article
               key={p.name}
-              className={`glass project ${touched ? 'pop' : 'reveal'} ${p.featured ? 'is-featured' : ''}`}
+              className={`glass project reveal ${p.featured ? 'is-featured' : ''}`}
               data-accent={i % 4}
               style={{ '--d': i % 3, viewTransitionName: `p-${slug(p.name)}` }}
             >

@@ -8,7 +8,7 @@ export default function Experience() {
     <section id="experience">
       <div className="wrap">
         <SectionHead
-          index="02"
+          index="06"
           eyebrow="Journey"
           title={<>Code → ownership<br />→ direction.</>}
           lead="From PowerBuilder and SQL Server in Kochi and Dubai to leading Python / Django teams — promoted twice within 24 months at Febno."

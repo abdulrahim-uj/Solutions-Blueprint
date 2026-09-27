@@ -10,15 +10,16 @@ export default function Hero() {
     <section className="hero wrap" id="top">
       <div className="hero-copy-col">
         <div className="pill enter" style={{ '--d': 0 }}>
-          <span className="pulse" aria-hidden="true" /> Solution Expert · <RotatingWord words={heroRoles} />
+          <span className="pulse" aria-hidden="true" /> <RotatingWord words={heroRoles} />
         </div>
         <h1 className="enter" style={{ '--d': 1 }}>
           Turning complex ideas into <span className="grad">real systems.</span>
         </h1>
         <p className="hero-copy enter" style={{ '--d': 2 }}>{profile.intro}</p>
         <div className="hero-actions enter" style={{ '--d': 3 }}>
-          <a className="btn primary" href="#work">View selected work <ArrowUpRight /></a>
-          <a className="btn secondary" href="#contact">Let&apos;s connect</a>
+          <a className="btn primary" href="#enquiry">Book a free 30-min call <ArrowUpRight /></a>
+          <a className="btn secondary" href="#case-studies">See case studies</a>
+          <a className="btn ghost hero-tool" href="#scorecard">Free: rate your Django backend</a>
         </div>
         <dl className="mini enter" style={{ '--d': 4 }}>
           {heroHighlights.map((h) => (

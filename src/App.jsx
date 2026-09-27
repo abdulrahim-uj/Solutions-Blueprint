@@ -1,10 +1,14 @@
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import Marquee from './components/Marquee.jsx'
+import Services from './components/Services.jsx'
+import CaseStudies from './components/CaseStudies.jsx'
+import Scorecard from './components/Scorecard.jsx'
+import Process from './components/Process.jsx'
+import Projects from './components/Projects.jsx'
 import About from './components/About.jsx'
 import Experience from './components/Experience.jsx'
-import Projects from './components/Projects.jsx'
-import Capabilities from './components/Capabilities.jsx'
+import Faq from './components/Faq.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import BackToTop from './components/BackToTop.jsx'
@@ -25,10 +29,14 @@ export default function App() {
       <main id="main">
         <Hero />
         <Marquee />
+        <Services />
+        <CaseStudies />
+        <Scorecard />
+        <Process />
+        <Projects />
         <About />
         <Experience />
-        <Projects />
-        <Capabilities />
+        <Faq />
         <Contact />
       </main>
       <Footer />

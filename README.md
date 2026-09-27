@@ -36,8 +36,10 @@ Built with **React 19 + Vite 8**, deployed on **Cloudflare Workers** (static ass
 │   ├── robots.txt
 │   └── sitemap.xml
 ├── src/
-│   ├── data/profile.js   # ← ALL content lives here (edit this to update the site)
-│   ├── components/       # Nav, Hero, Marquee, About, Experience, Projects, Capabilities, Contact, Footer, BackToTop, CountUp, RotatingWord
+│   ├── data/profile.js   # ← portfolio content (profile, experience, projects, skills)
+│   ├── data/business.js  # ← consulting offer, prices, case studies, scorecard, FAQ
+│   ├── lib/lead.js       # enquiry pre-fill, booking link, currency detection
+│   ├── components/       # Nav, Hero, Marquee, Services, CaseStudies, Scorecard, Process, Projects, About, Experience, Faq, Contact, Footer, …
 │   ├── hooks/            # useReveal, useScrollSpy, useScrollFx, useSpotlight, useTilt, useInView, useTimelineProgress
 │   ├── styles/global.css
 │   ├── App.jsx
@@ -46,6 +48,27 @@ Built with **React 19 + Vite 8**, deployed on **Cloudflare Workers** (static ass
 ├── wrangler.toml              # Cloudflare Workers config
 └── index.html
 ```
+
+## Lead-generation funnel
+
+The site doubles as a consulting sales funnel. All offer content lives in **`src/data/business.js`**:
+
+| What | Where in `business.js` |
+|---|---|
+| Fixed-scope services, retainers and training (with INR / USD / AED prices) | `services`, `retainers`, `training` |
+| Case studies (challenge → approach → outcome + system flow) | `caseStudies` |
+| Free "Django Production Readiness Scorecard" questions and fixes | `scorecard` |
+| Process steps and FAQ (FAQ also emits `FAQPage` structured data) | `processSteps`, `faqs` |
+| Enquiry form options | `enquiryServices`, `budgetRanges`, `timelines` |
+
+### Turn on direct form delivery and call booking (both optional, both free)
+
+In `leadConfig`:
+
+- **`web3formsKey`**: get a free access key at https://web3forms.com by entering your email. Enquiries then arrive straight in your inbox. Without a key, the form opens WhatsApp with the brief pre-filled, with email as a fallback.
+- **`bookingUrl`**: a Cal.com / Calendly / Google Calendar booking page. Without it, "Book a call" opens a WhatsApp chat.
+
+Pricing currency is auto-selected from the visitor's time zone (India → ₹, GCC → AED, else USD) and can be switched.
 
 ## Updating content
 

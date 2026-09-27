@@ -8,13 +8,13 @@ export const profile = {
   name: 'Abdul Rahim Kattirithodi',
   shortName: 'Abdul Rahim',
   initials: 'AR',
-  role: 'Solution Expert · Python / Django',
+  role: 'Django & Backend Consultant',
   headline: 'Senior Python / Django Engineer · Backend & Full Stack · Technical Lead',
   location: 'Kerala, India',
   photo: '/profile.webp',
   availability: 'Open to roles in India, GCC, Australia & Europe · EU Blue Card eligible',
   intro:
-    "I'm Abdul Rahim Kattirithodi, a backend-focused Solution Expert and Technical Lead. I build multi-tenant SaaS platforms, HR and eCommerce products, reliable REST APIs, and the middleware that keeps ERPs, CRMs and biometric devices in sync in production.",
+    "I'm Abdul Rahim Kattirithodi. I help SaaS founders, product teams and agencies design, fix and scale Python / Django backends — as a consultant, fractional tech lead or trainer. 9 years in enterprise software; today I lead an 11-engineer team shipping multi-tenant SaaS, HR and ERP-integrated products.",
 }
 
 export const contact = {
@@ -35,7 +35,7 @@ export const stats = [
 ]
 
 /** Rotating role words in the hero headline pill. */
-export const heroRoles = ['Python / Django', 'Technical Lead', 'Solution Architect', 'Backend Engineer']
+export const heroRoles = ['Django & Backend Consultant', 'Fractional Tech Lead', 'Integration Specialist', 'Developer Trainer']
 
 /** Technologies scrolled in the marquee strip under the hero. */
 export const marqueeStack = [
@@ -44,9 +44,9 @@ export const marqueeStack = [
 ]
 
 export const heroHighlights = [
-  { title: 'Backend', text: 'Python · Django · DRF · FastAPI' },
-  { title: 'Architecture', text: 'Multi-tenant · Modular · Secure' },
-  { title: 'Delivery', text: 'Docker · Nginx · PgBouncer · CI/CD' },
+  { title: 'Consulting', text: 'Audits · Scale sprints · Retainers' },
+  { title: 'Integrations', text: 'ERP · CRM · Payments · Devices' },
+  { title: 'Training', text: 'Team workshops · 1:1 mentoring' },
 ]
 
 export const about = {
@@ -201,8 +201,8 @@ export const projects = [
     kind: 'Employee monitoring platform',
     category: 'HR & Workforce',
     description:
-      'An employee monitoring platform with full Windows desktop agent support, covering screen capture, application usage tracking and productivity analytics.',
-    stack: ['Windows desktop agent', 'Screen capture', 'Usage tracking', 'Analytics'],
+      'An employee monitoring system with screen monitoring through a Windows desktop agent, application-usage analytics reports, timesheets and task management.',
+    stack: ['Screen monitoring', 'Usage analytics', 'Timesheets', 'Task management'],
     url: 'https://kollabzi.waslasoft.com',
     featured: true,
   },
@@ -244,11 +244,11 @@ export const projects = [
   },
   {
     name: 'Islify',
-    kind: 'US eCommerce platform',
+    kind: 'Cross-border eCommerce',
     category: 'SaaS & Commerce',
     description:
-      'Integrated Shoppable APIs for merchant-wise product catalogues shipped from the USA to Kenya, and built the R-Cash payment gateway integration via RamadPay.',
-    stack: ['Django', 'React', 'Shoppable API', 'RamadPay'],
+      'Shop America\u2019s top stores, delivered to Kenya. Catalogues come from the Shoppable API and Amazon via the Zinc API, with R-Cash payments via RamadPay.',
+    stack: ['Django', 'React', 'Shoppable API', 'Zinc API', 'RamadPay'],
     url: 'https://islify.com/',
   },
   {
@@ -256,8 +256,8 @@ export const projects = [
     kind: 'Admission & student management',
     category: 'Web Platforms',
     description:
-      'A student admission and management system for a school in Oman, with role-based access control and multi-stage admission workflows.',
-    stack: ['Django DRF', 'React', 'PostgreSQL', 'RBAC'],
+      'A complete student management system for a school in Oman: admissions, agreements with PDF generation, fees, invoices and bus management, across eight staff roles from admission officer to principal.',
+    stack: ['Django DRF', 'React', 'PostgreSQL', 'PDF generation', 'RBAC'],
     url: 'https://portal.mawhiba.edu.om/',
   },
   {
@@ -265,8 +265,8 @@ export const projects = [
     kind: 'Charity & donation platform',
     category: 'Web Platforms',
     description:
-      'A donation platform with secure HDFC payment gateway integration and transaction reconciliation.',
-    stack: ['React', 'Django DRF', 'PostgreSQL', 'HDFC PG'],
+      'A charity platform for Bairooha Foundation and its sister organisation Hope, with direct HDFC payment gateway integration, transaction reconciliation and WhatsApp flows.',
+    stack: ['React', 'Django DRF', 'PostgreSQL', 'HDFC PG', 'WhatsApp'],
     url: 'https://www.bairoohafoundation.com/',
   },
   {
@@ -317,37 +317,11 @@ export const projects = [
   },
 ]
 
-export const capabilities = [
-  {
-    title: 'Backend Architecture',
-    text: 'Django/DRF and FastAPI systems with clear domain boundaries, tenant isolation, auth, PostgreSQL schema design and query optimisation.',
-  },
-  {
-    title: 'Enterprise Integration',
-    text: 'Middleware connecting Odoo, Zoho, Moodle, biometric devices, payment gateways and legacy SQL Server systems, built to be reliable and idempotent.',
-  },
-  {
-    title: 'DevOps & Delivery',
-    text: 'Dockerized environments, Nginx + Gunicorn/Uvicorn, Celery workers, PgBouncer, GitLab CI/CD, production monitoring and incident response.',
-  },
-  {
-    title: 'Technical Leadership',
-    text: 'Requirement breakdown, architecture decisions, code review, release quality, hiring and mentoring. I own delivery from estimate to production.',
-  },
-  {
-    title: 'Full Stack Product',
-    text: 'React, Next.js and Angular frontends with localisation, plus Flutter-backed APIs, so the whole product ships as one coherent system.',
-  },
-  {
-    title: 'Training & Mentoring',
-    text: 'Structured courses and one-to-one mentoring that turn junior developers into engineers who ship to production.',
-  },
-]
-
 export const navLinks = [
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
+  { id: 'services', label: 'Services' },
+  { id: 'case-studies', label: 'Case studies' },
+  { id: 'scorecard', label: 'Free scorecard' },
   { id: 'work', label: 'Work' },
-  { id: 'skills', label: 'Stack' },
+  { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ]

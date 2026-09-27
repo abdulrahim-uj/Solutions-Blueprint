@@ -42,7 +42,7 @@ export default function Nav() {
           ))}
         </div>
 
-        <a className="nav-cta" href="#contact">Start a conversation <span aria-hidden="true">↗</span></a>
+        <a className="nav-cta" href="#enquiry">Book a free call <span aria-hidden="true">↗</span></a>
 
         <button
           type="button"
@@ -66,8 +66,8 @@ export default function Nav() {
             </a>
           ))}
         </div>
-        <a className="btn primary mobile-menu-cta" href="#contact" onClick={close} style={{ '--i': navLinks.length }}>
-          Start a conversation ↗
+        <a className="btn primary mobile-menu-cta" href="#enquiry" onClick={close} style={{ '--i': navLinks.length }}>
+          Book a free 30-min call ↗
         </a>
       </div>
     </>
